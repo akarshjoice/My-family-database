@@ -1,0 +1,89 @@
+∀X ∀Y  parent(Y,X) <-> child(X,Y) 
+∀X ∀Y (∃F,M parent(X,F) ∧ parent(Y,M) ∧ sibling(F,M) ∧ ¬(F = M)) <-> cousin(X,Y) 
+∀X ∀Y (∃F male(F) ∧ parent(X,F) ∧ parent(Y,F)) <-> sibling(X,Y) 
+∀X ∀Y (∃F male(F) ∧ parent(X,F) ∧ parent(Y,F) ∧ male(Y)) <-> brother(X,Y)
+∀X ∀Y (∃F male(F) ∧ parent(X,F) ∧ parent(Y,F) ∧ female(Y)) <-> sister(X,Y)
+∀X ∀Y  female(Y) ∧ parent(X,Y) <-> mother(X,Y)
+∀X ∀Y  male(Y) ∧ parent(X,Y) <-> father(X,Y)
+∀X ∀Y (∃T male(Y) ∧ parent(T,Y) ∧ parent(X,T)) <-> grandfather(X,Y) 
+∀X ∀Y (∃T female(Y) ∧ parent(T,Y) ∧ parent(X,T)) <-> grandmother(X,Y)
+∀X ∀Y (∃T male(Y) ∧ parent(T,Y) ∧ parent(X,T) ∧ male(T)) <-> paternalgrandfather(X,Y) 
+∀X ∀Y (∃T female(Y) ∧ parent(T,Y) ∧ parent(X,T) ∧ male(T)) <-> paternalgrandmother(X,Y)
+∀X ∀Y (∃T male(Y) ∧ parent(T,Y) ∧ parent(X,T) ∧ female(T)) <-> maternalgrandfather(X,Y)
+∀X ∀Y (∃T female(Y) ∧ parent(T,Y) ∧ parent(X,T) ∧ female(T)) <-> maternalgrandmother(X,Y)
+∀X ∀Y (∃P male(Y) ∧ parent(X,P) ∧ sibling(Y,P)) <-> uncle(X,Y)
+∀X ∀Y (∃P,Z husband(P,Y) ∧ sibling(P,Z) ∧ parent(X,Z)) <-> uncle(X,Y)
+∀X ∀Y (∃P female(Y) ∧ parent(X,P) ∧ sibling(Y,P)) <-> aunt(X,Y)
+∀X ∀Y (∃P wife(P,Y) ∧ sibling(P,Z) ∧ parent(X,Z)) <-> aunt(X,Y)
+∀X ∀Y  parent(Y,X) ∧ male(Y) <-> son(X,Y)
+∀X ∀Y  parent(Y,X) ∧ female(Y) <-> daughter(X,Y)
+∀X ∀Y  female(X) ∧ male(Y) ∧ spouse(Y,X) <-> husband(X,Y)
+∀X ∀Y  female(Y) ∧ male(X) ∧ spouse(X,Y) <-> wife(X,Y)
+∀X ∀Y (∃T male(Y) ∧ parent(T,X) ∧ parent(Y,T)) <-> grandson(X,Y) 
+∀X ∀Y (∃T female(Y) ∧ parent(T,X) ∧ parent(Y,T)) <-> granddaughter(X,Y)
+∀X ∀Y (∃P son(P,Y) ∧ sibling(P,X)) <-> nephew(X,Y) 
+∀X ∀Y (∃P daughter(P,Y) ∧ sibling(P,X)) <-> niece(X,Y)
+∀X ∀Y  parent(X,Y) <-> ancestor(X,Y) 
+∀X ∀Y (∃A parent(X,A) ∧ ancestor(A,Y)) <-> ancestor(X,Y)
+∀X ∀Y  child(X,Y) <-> descendant(X,Y)
+∀X ∀Y (∃A child(X,A) ∧ descendant(A,Y)) <-> descendant(X,Y)
+
+
+male(saju).
+male(joice).
+male(akarsh).
+male(ashak).
+male(stuart).
+male(simon).
+male(jithin).
+male(deon).
+male(joy).
+male(john).
+female(shobha).
+female(daisy).
+female(ashly).
+female(allissa).
+female(bincy).
+female(mariyam).
+female(katelin).
+female(diya).
+female(shiji).
+female(christine).
+female(mary).
+
+
+parent(daisy,john).
+parent(daisy,mariyam).
+parent(bincy,john).
+parent(bincy,mariyam).
+parent(stuart,john).
+parent(stuart,mariyam).
+parent(simon,john).
+parent(simon,mariyam).
+parent(jithin,stuart).
+parent(jithin,shobha).
+parent(christine,stuart).
+parent(christine,shobha).
+parent(katelin,stuart).
+parent(katelin,shobha).
+parent(diya,simon).
+parent(diya,shiji).
+parent(deon,simon).
+parent(deon,shiji).
+parent(ashly,saju).
+parent(ashly,bincy).
+parent(allissa,saju).
+parent(allissa,bincy).
+parent(ashak,joice).
+parent(ashak,daisy).
+parent(akarsh,joice).
+parent(akarsh,daisy).
+parent(joice,joy).
+parent(joice,mary).
+
+spouse(joy,mary).
+spouse(john,mariyam).
+spouse(stuart,shobha).
+spouse(joice,daisy).
+spouse(saju,bincy).
+spouse(simon,shiji).
